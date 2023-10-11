@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  
+    <form #form ='ngForm' class=" row g-3 needs-validation was-validated"  (ngSubmit)="onFormSubmit()">
+       
+        <div class="col-md-2">
+          <label for="labelFrom" class="form-label">From</label>
+          <!-- <input type="text" required name="from" id="from" class="form-control" [(ngModel)] ="model.from" > -->
+          <input list="countryOptions" id="from" name="from" class="form-control" required [(ngModel)] ="model.from">
+          <datalist id="countryOptions">
+            <option *ngFor="let country of countryList" [value]="country.countryCode">{{ country.countryName }}</option>
+          </datalist>
+        </div>
+        <div class="col-md-2">
+            <label for="labelTo" class="form-label">To</label>
+            <!-- <input type="text" required id="to" name="to" class="form-control" [(ngModel)] ="model.to" > -->
+            <input list="countryOptions" id="to" name="to" required class="form-control" [(ngModel)] ="model.to">
+            <datalist id="countryOptions">
+              <option *ngFor="let country of countryList" [value]="country.countryCode">{{ country.countryName }}</option>
+            </datalist>
+          </div>
+          <div class="col-md-2">
+            <label for="labelTo" class="form-label">From Date</label>
+            <input type="date"  id="to" name="fromDate" class="form-control" [(ngModel)] ="model.fromDate" >
+          </div>
+          <div class="col-md-2">
+            <label for="labelTo" class="form-label">To Date</label>
+            <input type="date"  id="to" name="toDate" class="form-control" [(ngModel)] ="model.toDate">
+           
+          </div>
+          <div>
+            <button  id ='natetebar' type="submit" class="btn btn-primary">Show Report</button>
+         
+        </div>
+          
+      </form>
+    </div>
+<div id="divChart">
+    <canvas id="myChart"></canvas>
+</div>

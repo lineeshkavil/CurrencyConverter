@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  
+<form class="row g-3 needs-validation was-validated" novalidate (ngSubmit)="onSubmit()" >
+
+    <div class="col-md-3">
+      <label for="labelAmount" class="form-label">Amount</label>
+      <input type="number" required name="amount"  id="amount" class="form-control" [(ngModel)] ="model.money" >
+    </div>
+    <div class="col-md-3">
+      <label for="from" class="form-label">From</label>
+      <input type="text" list="countryOptions" id="from" required name="from" class="form-control" [(ngModel)] ="model.from">
+      <datalist id="countryOptions">
+        <option *ngFor="let country of countryList" [value]="country.countryCode">{{ country.countryName }}</option>
+      </datalist>
+      <!-- <input type="text" (ngChange)="clear()" required name="from" id="from" class="form-control" [(ngModel)] ="model.from"> -->
+     
+    </div>
+    <div class="col-md-3">
+        <label for="labelTo" class="form-label">To</label>
+
+        <!-- <input type="text" (ngChange)="clear()" required id="to" name="to" class="form-control" [(ngModel)] ="model.to"> -->
+        <input list="countryOptions" id="to" name="to" class="form-control" [(ngModel)] ="model.to" required>
+        <datalist id="countryOptions">
+          <option *ngFor="let country of countryList" [value]="country.countryCode">{{ country.countryName }}</option>
+        </datalist>
+      </div>
+      <div class="col-md-3">
+        <label for="labelTo" class="form-label">Date</label>
+        <input type="date" id="date" name="date" class="form-control" [(ngModel)] ="model.date">
+      </div>
+      <div >
+        <button type="submit" style="margin-right: 40px;"   class="btn btn-primary">Convert</button>
+        <label *ngIf="currencyView.exchangeRate" for="labelTo"   class="p-2 text-success-emphasis  border border-success-subtle rounded-3" name="exchangeRate">{{dataLoaded}}</label>
+        <label *ngIf="currencyView.errorMessage" for="labelTo" class="p-2 text-danger-emphasis  border border-danger-subtle rounded-3" name="errorMessage" >{{currencyView.errorMessage}}</label>
+      </div>
+      <!-- <button type="submit"   class="btn btn-primary">Convert</button> -->
+      <!-- <label *ngIf="currencyView.exchangeRate" for="labelTo" class="form-label" name="exchangeRate">{{model.money}} {{model.from}} equalent to {{currencyView.exchangeRate}} {{model.to}}</label>
+      <label *ngIf="currencyView.errorMessage" for="labelTo" class="form-label" name="errorMessage" >{{currencyView.errorMessage}}</label> -->
+
+    </form>
+
+  <!-- <label for="countryInput">Select a Country:</label>
+  <input list="countryOptions" id="countryInput" class="form-control" [(ngModel)] ="model.to">
+  <datalist id="countryOptions">
+    <option *ngFor="let country of countryList" [value]="country.countryCode">{{ country.countryName }}</option>
+  </datalist> -->
+
+  
+ 
+       
+

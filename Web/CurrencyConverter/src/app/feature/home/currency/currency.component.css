@@ -1,0 +1,21 @@
+#divContainer{
+    display: block;
+    width: 400px;
+    height: 400px;
+}
+#natetebar {
+    margin-bottom: 20px;
+  }
+  :host ::ng-deep .mat-autocomplete-panel {
+    background-color: red;
+    font-family: 'Your-Font', sans-serif;
+  }
+  
+  .mat-autocomplete-panel {
+    font-family:  sans-serif;
+  }
+  .mat-autocomplete-panel {
+    background-color: blue !important;
+    font-family:  sans-serif !important;
+  }
+  
